@@ -19,14 +19,4 @@ export default async (req, res) => {
 			return res.status(400).json({ error })
 		}
 	}
-
-	// GET: Linker knyttet til ID
-	if (req.method === 'GET') {
-		try {
-			const linksFromUser = await ShortLink.find({ userID: req.body.userID })
-			return res.status(200).json({ links: linksFromUser || [] })
-		} catch (error) {
-			return res.status(400).json({ error })
-		}
-	}
 }

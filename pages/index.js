@@ -1,3 +1,11 @@
+import Header from '@components/Header'
+import UserLinks from '@components/UserLinks'
+
 export default function Home() {
-	return <div>hello world</div>
+	return (
+		<>
+			<Header />
+			<UserLinks />
+		</>
+	)
 }
