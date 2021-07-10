@@ -34,7 +34,13 @@ export default function NewLinkForm() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
+			<form
+				onSubmit={handleSubmit}
+				autoComplete='off'
+				spellCheck='false'
+				autoCorrect='off'
+				autocapitalize='none'
+			>
 				{error && <ErrorMessage message={error} />}
 				<TextField
 					label='Link til hva som helst'

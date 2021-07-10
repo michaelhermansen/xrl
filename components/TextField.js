@@ -21,9 +21,6 @@ export default function TextField({
 						id={id}
 						placeholder={placeholder}
 						maxLength={maxLength}
-						autocomplete='off'
-						spellcheck='false'
-						autocorrect='off'
 						value={value}
 						onChange={e => setValue(e.target.value)}
 					/>
