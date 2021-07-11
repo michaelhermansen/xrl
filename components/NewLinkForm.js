@@ -27,7 +27,7 @@ export default function NewLinkForm({ getLinks }) {
 			setUrlValue('')
 			setAliasValue('')
 			setError('')
-			getLinks()
+			await getLinks()
 			document
 				.querySelector('#my-links')
 				.scrollIntoView({ behavior: 'smooth', inline: 'start' })

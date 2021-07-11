@@ -18,6 +18,7 @@ export default function UserLinks({ links }) {
 			<style jsx>{`
 				section {
 					padding: 3rem 0;
+					background-color: var(--color-dark);
 				}
 
 				h2 {

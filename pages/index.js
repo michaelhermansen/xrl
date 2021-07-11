@@ -19,7 +19,7 @@ export default function Home() {
 	return (
 		<>
 			<Jumbo getLinks={getLinks} />
-			<UserLinks links={links} />
+			{links.length ? <UserLinks links={links} /> : null}
 		</>
 	)
 }

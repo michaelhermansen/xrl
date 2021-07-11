@@ -24,6 +24,11 @@ const shortLinkSchema = new mongoose.Schema({
 		type: String,
 		required: false,
 	},
+	expireAfterSeconds: {
+		type: Number,
+		required: true,
+		default: 10,
+	},
 })
 
 shortLinkSchema.path('original').validate(url => {
