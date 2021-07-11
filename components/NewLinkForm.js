@@ -4,7 +4,7 @@ import Button from './Button'
 import ErrorMessage from './ErrorMessage'
 import submitLink from '@utils/submitLink'
 
-export default function NewLinkForm() {
+export default function NewLinkForm({ getLinks }) {
 	const [urlValue, setUrlValue] = useState('')
 	const [aliasValue, setAliasValue] = useState('')
 	const [loading, setLoading] = useState(false)
@@ -20,13 +20,15 @@ export default function NewLinkForm() {
 		const newLink = await submitLink(newBody)
 		if (newLink.error) {
 			// on error
-			setError('Det oppstod en uventet feil, vennligst prøv igjen.')
+			setError('Noe gikk galt, vennligst prøv igjen.')
 			console.error(newLink.error)
 		} else {
 			// on success
 			setUrlValue('')
 			setAliasValue('')
 			setError('')
+			getLinks()
+			document.querySelector('#my-links').scrollIntoView({ behavior: 'smooth' })
 		}
 
 		setLoading(false)
@@ -39,9 +41,8 @@ export default function NewLinkForm() {
 				autoComplete='off'
 				spellCheck='false'
 				autoCorrect='off'
-				autocapitalize='none'
+				autoCapitalize='none'
 			>
-				{error && <ErrorMessage message={error} />}
 				<TextField
 					label='Link til hva som helst'
 					id='url'
@@ -61,7 +62,9 @@ export default function NewLinkForm() {
 					primary
 					dark
 					disabled={loading}
+					className={loading ? 'loading' : ''}
 				/>
+				{error && <ErrorMessage message={error} />}
 			</form>
 
 			{/* styles */}

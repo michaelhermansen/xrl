@@ -19,7 +19,7 @@ export default function Button({
 			{/* styles */}
 			<style jsx>{`
 				button {
-					padding: 1rem 2rem;
+					padding: 0.8rem 2rem;
 					font-weight: 500;
 					margin: 1.5rem 0;
 					text-transform: uppercase;
@@ -30,7 +30,7 @@ export default function Button({
 					color: ${dark ? 'var(--color-light)' : null};
 				}
 
-				button:disabled {
+				button:disabled.loading {
 					animation: pulse 1s infinite;
 				}
 
