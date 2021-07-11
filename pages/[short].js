@@ -11,6 +11,7 @@ export async function getServerSideProps(context) {
 			context.res.writeHead(303, { Location: link.original })
 			context.res.end()
 			link.clicks++
+			link.expiresAt = Date.now() + 1000 * 60 * 60 * 24 * 30 // 30 dager frem i tid
 			link.save()
 		}
 	} catch (error) {

@@ -24,10 +24,10 @@ const shortLinkSchema = new mongoose.Schema({
 		type: String,
 		required: false,
 	},
-	expireAfterSeconds: {
-		type: Number,
+	expiresAt: {
+		type: Date,
 		required: true,
-		default: 10,
+		default: Date.now() + 1000 * 60 * 60 * 24 * 30, // 30 dager frem i tid
 	},
 })
 
