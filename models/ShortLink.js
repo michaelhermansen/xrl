@@ -36,7 +36,7 @@ shortLinkSchema.path('original').validate(url => {
 }, 'Ugyldig URL')
 
 shortLinkSchema.path('short').validate(short => {
-	const shortRegex = /^[a-z0-9-]+$/i
+	const shortRegex = /^[a-z0-9-_]+$/i
 	return shortRegex.test(short)
 }, 'Ugyldig alias')
 

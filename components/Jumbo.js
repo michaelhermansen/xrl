@@ -19,7 +19,7 @@ export default function Jumbo({ getLinks }) {
 			{/* styles */}
 			<style jsx>{`
 				.logo {
-					height: 1rem;
+					height: 1.25rem;
 				}
 
 				.main-content {
