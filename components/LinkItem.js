@@ -30,7 +30,11 @@ export default function LinkItem({ link, getLinks }) {
 				<a className='link' href={link.short}>
 					{shortUrl}
 				</a>
-				{link.clicks ? <div className='clicks'>{link.clicks} klikk</div> : ''}
+				{link.clicks ? (
+					<div className='clicks'>Har blitt klikket {link.clicks} ganger</div>
+				) : (
+					''
+				)}
 				<div className='actions'>
 					<Button
 						onClick={copyLink}
