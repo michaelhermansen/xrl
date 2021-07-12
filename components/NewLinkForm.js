@@ -65,7 +65,7 @@ export default function NewLinkForm({ getLinks }) {
 					dark
 					disabled={loading}
 					className={loading ? 'loading' : ''}
-					style={{ marginTop: '1.5rem' }}
+					style={{ margin: '1.5rem 0' }}
 				/>
 				{error && <ErrorMessage message={error} />}
 			</form>
