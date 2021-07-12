@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import getUserID from '@utils/getUserID'
 
 export default function Home() {
-	const [links, setLinks] = useState([])
+	const [links, setLinks] = useState(null)
 
 	const getLinks = async () => {
 		const res = await fetch(`/api/links/${getUserID()}`)
@@ -19,7 +19,7 @@ export default function Home() {
 	return (
 		<>
 			<Jumbo getLinks={getLinks} />
-			{links.length ? <UserLinks links={links} /> : null}
+			<UserLinks links={links} />
 		</>
 	)
 }

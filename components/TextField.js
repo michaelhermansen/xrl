@@ -50,14 +50,14 @@ export default function TextField({
 					position: absolute;
 					top: 0;
 					right: 0;
-					padding: 0.8rem;
+					padding: 1rem;
 					pointer-events: none;
 				}
 
 				input {
 					display: block;
 					width: 100%;
-					padding: 0.8rem 0;
+					padding: 1rem 0;
 					text-indent: 1rem;
 					padding-right: ${maxLength ? '5rem' : '1rem'};
 					border-radius: 0.5rem;
