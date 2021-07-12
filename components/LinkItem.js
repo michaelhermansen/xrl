@@ -16,9 +16,10 @@ export default function LinkItem({ link, getLinks }) {
 
 			const data = await res.json()
 			if (data.error) return console.log(data.error)
-			if (!data.error) getLinks()
 		} catch (error) {
 			console.log({ error })
+		} finally {
+			getLinks()
 		}
 	}
 
