@@ -30,6 +30,7 @@ export default function LinkItem({ link, getLinks }) {
 				<a className='link' href={link.short}>
 					{shortUrl}
 				</a>
+				{link.clicks ? <div className='clicks'>{link.clicks} klikk</div> : ''}
 				<div className='actions'>
 					<Button
 						onClick={copyLink}
@@ -54,8 +55,8 @@ export default function LinkItem({ link, getLinks }) {
 				.link {
 					font-size: 1.25rem;
 					font-weight: 500;
-					padding: 1rem 0;
-					margin: 1.5rem 0 1.75rem 0;
+					padding: 0.5rem 0;
+					margin: 2rem 0 ${link.clicks ? '.5rem' : '2rem'} 0;
 					display: block;
 					text-align: center;
 					overflow-wrap: break-word;
@@ -72,6 +73,15 @@ export default function LinkItem({ link, getLinks }) {
 				.actions {
 					display: flex;
 					gap: 0.5rem;
+				}
+
+				.clicks {
+					margin: 0 auto;
+					margin-bottom: 2rem;
+					padding: 0.5rem 1rem;
+					width: max-content;
+					background: rgba(0, 0, 0, 0.05);
+					border-radius: 0.5rem;
 				}
 			`}</style>
 		</>
