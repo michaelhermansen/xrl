@@ -31,7 +31,9 @@ export default function LinkItem({ link, getLinks }) {
 					{shortUrl}
 				</a>
 				{link.clicks ? (
-					<div className='clicks'>Har blitt klikket {link.clicks} ganger</div>
+					<div className='clicks'>
+						Har blitt klikket {link.clicks} gang{link.clicks > 1 ? 'er' : ''}
+					</div>
 				) : (
 					''
 				)}
