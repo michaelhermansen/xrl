@@ -1,7 +1,7 @@
 import Container from './Container'
 import LinkItem from './LinkItem'
 
-export default function UserLinks({ links }) {
+export default function UserLinks({ links, getLinks }) {
 	return (
 		<>
 			<section id='my-links'>
@@ -14,7 +14,11 @@ export default function UserLinks({ links }) {
 							{links.length ? (
 								<ul>
 									{links.map(link => (
-										<LinkItem key={link.short} link={link} />
+										<LinkItem
+											key={link.short}
+											link={link}
+											getLinks={getLinks}
+										/>
 									))}
 								</ul>
 							) : (
