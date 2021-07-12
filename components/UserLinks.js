@@ -1,5 +1,7 @@
 import Container from './Container'
 import LinkItem from './LinkItem'
+import Loader from './Loader'
+import NoLinks from './NoLinks'
 
 export default function UserLinks({ links, getLinks }) {
 	return (
@@ -8,7 +10,7 @@ export default function UserLinks({ links, getLinks }) {
 				<Container>
 					<h2 className='g--subtitle'>Mine linker</h2>
 					{!links ? (
-						<p>Laster …</p>
+						<Loader />
 					) : (
 						<>
 							{links.length ? (
@@ -22,7 +24,7 @@ export default function UserLinks({ links, getLinks }) {
 									))}
 								</ul>
 							) : (
-								<p>Du har ingen linker</p>
+								<NoLinks />
 							)}
 						</>
 					)}
@@ -31,7 +33,7 @@ export default function UserLinks({ links, getLinks }) {
 
 			<style jsx>{`
 				section {
-					padding: 3rem 0;
+					padding: 3rem 0 4rem 0;
 					background-color: var(--color-dark);
 				}
 

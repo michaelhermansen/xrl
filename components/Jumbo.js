@@ -10,7 +10,7 @@ export default function Jumbo({ getLinks }) {
 						<img className='logo' src='/assets/xrl-logo.svg' alt='' />
 					</div>
 					<div className='main-content'>
-						<h1 className='g--large-title'>Lag en kort og elegant URL</h1>
+						<h1 className='g--large-title'>Send korte og elegante linker</h1>
 						<NewLinkForm getLinks={getLinks} />
 					</div>
 				</Container>
@@ -19,7 +19,7 @@ export default function Jumbo({ getLinks }) {
 			{/* styles */}
 			<style jsx>{`
 				.logo {
-					height: 1.25rem;
+					height: 1rem;
 				}
 
 				.main-content {

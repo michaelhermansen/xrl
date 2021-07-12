@@ -5,7 +5,7 @@ export default function LinkItem({ link, getLinks }) {
 	const shortUrl = `${location.host.replace('www.', '')}/${link.short}`
 
 	const copyLink = () => {
-		navigator.clipboard.writeText(shortUrl)
+		navigator.clipboard.writeText(`https://${shortUrl}`)
 	}
 
 	const deleteLink = async () => {

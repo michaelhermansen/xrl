@@ -13,7 +13,7 @@ export default function Button({ text, primary, dark, ...props }) {
 					border-radius: 999px;
 					background-color: ${primary ? 'var(--color-accent)' : 'transparent'};
 					background-color: ${primary && dark ? 'var(--color-dark)' : null};
-					color: ${dark ? 'var(--color-light)' : null};
+					color: ${dark ? 'var(--color-light)' : 'var(--color-dark)'};
 					box-shadow: ${!primary ? 'inset 0 0 0 1px rgba(0, 0, 0, .15)' : ''};
 				}
 
