@@ -11,7 +11,7 @@ export default function NoLinks() {
 			<style jsx>{`
 				.wrapper {
 					padding: 2.5rem 1.5rem;
-					background: rgba(255, 255, 255, 0.1);
+					background: rgba(255, 255, 255, 0.05);
 					border-radius: 1rem;
 					display: flex;
 					flex-direction: column;

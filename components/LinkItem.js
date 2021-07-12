@@ -1,5 +1,6 @@
 import getUserID from '@utils/getUserID'
 import Button from './Button'
+import bp from '@breakpoints'
 
 export default function LinkItem({ link, getLinks }) {
 	const shortUrl = `${location.host.replace('www.', '')}/${link.short}`
@@ -88,6 +89,15 @@ export default function LinkItem({ link, getLinks }) {
 					width: max-content;
 					background: rgba(0, 0, 0, 0.05);
 					border-radius: 0.5rem;
+				}
+
+				@media (min-width: ${bp.medium}px) {
+					li {
+						flex: 1;
+						flex-grow: 0;
+						flex-basis: 20rem;
+						margin: 0;
+					}
 				}
 			`}</style>
 		</>

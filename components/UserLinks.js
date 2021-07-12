@@ -2,6 +2,7 @@ import Container from './Container'
 import LinkItem from './LinkItem'
 import Loader from './Loader'
 import NoLinks from './NoLinks'
+import bp from '@breakpoints'
 
 export default function UserLinks({ links, getLinks }) {
 	return (
@@ -43,6 +44,14 @@ export default function UserLinks({ links, getLinks }) {
 
 				p {
 					padding: 1rem 0.5rem;
+				}
+
+				@media (min-width: ${bp.medium}px) {
+					ul {
+						display: flex;
+						flex-wrap: wrap;
+						gap: 1rem;
+					}
 				}
 			`}</style>
 		</>

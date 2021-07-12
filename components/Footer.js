@@ -3,7 +3,7 @@ export default function Footer() {
 		<>
 			<footer>
 				<p>
-					Laget av{' '}
+					{`Laget av `}
 					<a target='_blank' href='https://michaelhermansen.no'>
 						Michael Hermansen
 					</a>
@@ -12,9 +12,12 @@ export default function Footer() {
 
 			<style jsx>{`
 				footer {
-					background: rgba(255, 255, 255, 0.05);
-					padding: 3rem 1rem;
+					background: rgba(255, 255, 255, 0.01);
+					padding: 6rem 1rem;
 					text-align: center;
+				}
+				p {
+					opacity: 0.5;
 				}
 			`}</style>
 		</>
