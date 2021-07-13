@@ -74,7 +74,6 @@ export default function NewLinkForm({ getLinks }) {
 			<style jsx>{`
 				form {
 					padding: 2rem 0;
-					max-width: 35rem;
 				}
 			`}</style>
 		</>

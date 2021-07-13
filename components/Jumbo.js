@@ -8,10 +8,11 @@ export default function Jumbo({ getLinks }) {
 			<section>
 				<Container>
 					<div>
-						<img className='logo' src='/assets/xrl-logo.svg' alt='' />
+						{/* <img className='logo' src='/assets/xrl-logo.svg' alt='' /> */}
+						<p className='brand'>xrl.no/</p>
 					</div>
 					<div className='main-content'>
-						<h1 className='title'>Lag korte og elegante linker</h1>
+						<h1 className='title'>lag korte og elegante linker.</h1>
 						<div className='form'>
 							<NewLinkForm getLinks={getLinks} />
 						</div>
@@ -25,14 +26,22 @@ export default function Jumbo({ getLinks }) {
 					height: 1rem;
 				}
 
+				.brand {
+					font-size: 1.5rem;
+					font-weight: 500;
+				}
+
 				.main-content {
 					padding: 6rem 0 4rem 0;
+					display: grid;
+					grid-template-columns: 1fr;
+					max-width: 1200px;
+					margin: 0 auto;
 				}
 
 				.title {
-					font-size: clamp(2rem, 13vw, 4rem);
-					max-width: 30rem;
-					line-height: 1.05;
+					font-size: clamp(2rem, 12.5vw, 4rem);
+					line-height: 1;
 					letter-spacing: -0.02em;
 					font-weight: 700;
 				}
@@ -45,22 +54,13 @@ export default function Jumbo({ getLinks }) {
 
 				@media (min-width: ${bp.medium}px) {
 					.main-content {
-						display: flex;
-						gap: 6rem;
+						grid-template-columns: 1fr 1fr;
+						gap: 2rem;
 						align-items: center;
-						padding-top: 8rem;
-						max-width: 1200px;
-						margin: 0 auto;
 					}
 
 					.title {
-						flex: 2;
-						padding: 0 0 2rem 0;
-						font-size: clamp(2rem, 6vw, 4rem);
-					}
-
-					.form {
-						flex: 3;
+						padding-bottom: 4rem;
 					}
 				}
 			`}</style>

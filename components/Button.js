@@ -14,7 +14,15 @@ export default function Button({ text, primary, dark, ...props }) {
 					background-color: ${primary ? 'var(--color-accent)' : 'transparent'};
 					background-color: ${primary && dark ? 'var(--color-dark)' : null};
 					color: ${dark ? 'var(--color-light)' : 'var(--color-dark)'};
-					box-shadow: ${!primary ? 'inset 0 0 0 1px rgba(0, 0, 0, .15)' : ''};
+					border: 1px solid transparent;
+					border-color: ${!primary ? 'rgba(0,0,0,0.1)' : 'transparent'};
+					cursor: pointer;
+					transition: transform 0.1s, opacity 0.2s;
+				}
+
+				button:hover {
+					transform: scale(1.025);
+					opacity: 0.9;
 				}
 
 				button:disabled.loading {

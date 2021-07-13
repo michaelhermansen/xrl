@@ -15,7 +15,7 @@ export default function Container({ children, ...props }) {
 					margin: 0 auto;
 				}
 
-				@media (min-width: ${bp.small}px) {
+				@media (min-width: ${bp.medium}px) {
 					.container {
 						padding: 0 2rem;
 					}

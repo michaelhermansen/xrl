@@ -1,15 +1,17 @@
 import getUserID from '@utils/getUserID'
 import Button from './Button'
-import bp from '@breakpoints'
+import { useState } from 'react'
 
 export default function LinkItem({ link, getLinks }) {
-	const shortUrl = `${location.host.replace('www.', '')}/${link.short}`
+	const [loading, setLoading] = useState(false)
 
+	const shortUrl = `${location.host.replace('www.', '')}/${link.short}`
 	const copyLink = () => {
 		navigator.clipboard.writeText(`https://${shortUrl}`)
 	}
 
 	const deleteLink = async () => {
+		setLoading(true)
 		try {
 			const res = await fetch(`/api/links/${getUserID()}/${link.short}`, {
 				method: 'DELETE',
@@ -19,6 +21,7 @@ export default function LinkItem({ link, getLinks }) {
 			if (data.error) return console.log(data.error)
 		} catch (error) {
 			console.log({ error })
+			setLoading(false)
 		} finally {
 			getLinks()
 		}
@@ -44,8 +47,14 @@ export default function LinkItem({ link, getLinks }) {
 						text='Kopier'
 						primary
 						style={{ width: '100%' }}
+						disabled={loading}
 					/>
-					<Button onClick={deleteLink} text='Slett' style={{ width: '100%' }} />
+					<Button
+						onClick={deleteLink}
+						text='Slett'
+						style={{ width: '100%' }}
+						disabled={loading}
+					/>
 				</div>
 			</li>
 
@@ -53,10 +62,11 @@ export default function LinkItem({ link, getLinks }) {
 				li {
 					padding: 1rem;
 					padding-bottom: 1.5rem;
-					margin-bottom: 1.5rem;
 					background-color: var(--color-light);
 					color: var(--color-dark);
 					border-radius: 1rem;
+					transition: opacity 0.1s;
+					opacity: ${loading ? 0 : 1};
 				}
 
 				.link {
@@ -89,15 +99,6 @@ export default function LinkItem({ link, getLinks }) {
 					width: max-content;
 					background: rgba(0, 0, 0, 0.05);
 					border-radius: 0.5rem;
-				}
-
-				@media (min-width: ${bp.medium}px) {
-					li {
-						flex: 1;
-						flex-grow: 0;
-						flex-basis: 20rem;
-						margin: 0;
-					}
 				}
 			`}</style>
 		</>

@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
 :root {
 	--color-dark: #0f0f11;
 	--color-light: #f8f8f8;
-	--color-accent: #9f9fff;
+	--color-accent: #8f8fff;
 	--color-error: #ffcb7e;
 	--font-size: 16px;
 }
