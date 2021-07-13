@@ -1,9 +1,15 @@
 import getUserID from '@utils/getUserID'
 import Button from './Button'
-import { useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 export default function LinkItem({ link, getLinks }) {
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(true)
+
+	useLayoutEffect(() => {
+		setTimeout(() => {
+			setLoading(false)
+		}, 300)
+	}, [])
 
 	const shortUrl = `${location.host.replace('www.', '')}/${link.short}`
 	const copyLink = () => {
@@ -16,14 +22,13 @@ export default function LinkItem({ link, getLinks }) {
 			const res = await fetch(`/api/links/${getUserID()}/${link.short}`, {
 				method: 'DELETE',
 			})
-
 			const data = await res.json()
 			if (data.error) return console.log(data.error)
 		} catch (error) {
 			console.log({ error })
 			setLoading(false)
 		} finally {
-			getLinks()
+			setTimeout(getLinks, 100)
 		}
 	}
 
@@ -65,8 +70,9 @@ export default function LinkItem({ link, getLinks }) {
 					background-color: var(--color-light);
 					color: var(--color-dark);
 					border-radius: 1rem;
-					transition: opacity 0.1s;
+					transition: opacity 0.2s;
 					opacity: ${loading ? 0 : 1};
+					pointer-events: ${loading ? 'none' : 'unset'};
 				}
 
 				.link {
