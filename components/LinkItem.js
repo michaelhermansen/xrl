@@ -36,7 +36,7 @@ export default function LinkItem({ link, getLinks }) {
 		<>
 			<li>
 				<p className='original-url'>{link.original}</p>
-				<a className='link' href={link.short}>
+				<a className='link' href={link.short} target='_blank'>
 					{shortUrl}
 				</a>
 				{link.clicks ? (

@@ -57,6 +57,7 @@ export default function UserLinks({ links, getLinks }) {
 						display: grid;
 						grid-template-columns: repeat(2, 1fr);
 						gap: 1rem;
+						align-items: flex-start;
 					}
 				}
 

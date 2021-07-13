@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 import shortId from 'shortid'
 import validateURL from '@utils/validateURL'
+import testAlias from '@utils/testAlias'
 
 const shortLinkSchema = new mongoose.Schema({
 	original: {
@@ -36,8 +37,7 @@ shortLinkSchema.path('original').validate(url => {
 }, 'Ugyldig URL')
 
 shortLinkSchema.path('short').validate(short => {
-	const shortRegex = /^[a-z0-9-_]+$/i
-	return shortRegex.test(short)
+	return testAlias(short)
 }, 'Ugyldig alias')
 
 export default mongoose.models.ShortLink ||

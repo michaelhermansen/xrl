@@ -3,30 +3,46 @@ import TextField from './TextField'
 import Button from './Button'
 import ErrorMessage from './ErrorMessage'
 import submitLink from '@utils/submitLink'
+import validateURL from '@utils/validateURL'
+import testAlias from '@utils/testAlias'
 
 export default function NewLinkForm({ getLinks }) {
 	const [urlValue, setUrlValue] = useState('')
 	const [aliasValue, setAliasValue] = useState('')
 	const [loading, setLoading] = useState(false)
-	const [error, setError] = useState('')
+	const [error, setError] = useState(null)
 
 	const handleSubmit = async event => {
 		setLoading(true)
 		event.preventDefault()
+
+		// frontend validation
+		if (!validateURL(urlValue).valid) {
+			setError('Vennligst fyll inn en gyldig URL')
+			setLoading(false)
+			return
+		}
+
+		if (aliasValue && !testAlias(aliasValue)) {
+			setError(
+				'Alias kan kun innholde bokstavene a–z, tall, bindestrek og understrek',
+			)
+			setLoading(false)
+			return
+		}
 
 		const newBody = { original: urlValue }
 		if (aliasValue.length) newBody.short = aliasValue
 
 		const newLink = await submitLink(newBody)
 		if (newLink.error) {
-			// on error
-			setError('Noe gikk galt, vennligst prøv igjen.')
+			// on server error
+			setError('Noe gikk galt, vennligst prøv igjen')
 			console.error(newLink.error)
 		} else {
 			// on success
 			setUrlValue('')
 			setAliasValue('')
-			setError('')
 			await getLinks()
 			document
 				.querySelector('#my-links')
@@ -66,6 +82,7 @@ export default function NewLinkForm({ getLinks }) {
 					disabled={loading}
 					className={loading ? 'loading' : ''}
 					style={{ margin: '1.5rem 0' }}
+					onClick={() => setError(null)}
 				/>
 				{error && <ErrorMessage message={error} />}
 			</form>

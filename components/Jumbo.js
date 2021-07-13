@@ -8,7 +8,6 @@ export default function Jumbo({ getLinks }) {
 			<section>
 				<Container>
 					<div>
-						{/* <img className='logo' src='/assets/xrl-logo.svg' alt='' /> */}
 						<p className='brand'>xrl.no/</p>
 					</div>
 					<div className='main-content'>
@@ -22,13 +21,10 @@ export default function Jumbo({ getLinks }) {
 
 			{/* styles */}
 			<style jsx>{`
-				.logo {
-					height: 1rem;
-				}
-
 				.brand {
 					font-size: 1.5rem;
 					font-weight: 500;
+					user-select: none;
 				}
 
 				.main-content {
