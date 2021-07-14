@@ -9,7 +9,6 @@ export default function Home() {
 	const [links, setLinks] = useState(null)
 
 	const getLinks = async () => {
-		console.log('oppdaterer linker')
 		const res = await fetch(`/api/links/${getUserID()}`)
 		const data = await res.json()
 		setLinks(data.links.reverse())
@@ -17,6 +16,9 @@ export default function Home() {
 
 	useEffect(() => {
 		getLinks()
+		window.addEventListener('focus', getLinks)
+
+		return () => window.removeEventListener('focus', getLinks)
 	}, [])
 
 	return (

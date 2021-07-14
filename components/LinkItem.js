@@ -15,7 +15,6 @@ export default function LinkItem({ link, getLinks }) {
 	const shortUrl = `${location.host.replace('www.', '')}/${link.short}`
 	const copyLink = () => {
 		if (!copied) {
-			console.log('kopiert')
 			navigator.clipboard.writeText(`https://${shortUrl}`)
 			setCopied(true)
 			setTimeout(() => setCopied(false), 2000)
