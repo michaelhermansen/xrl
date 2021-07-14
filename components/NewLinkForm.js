@@ -37,8 +37,12 @@ export default function NewLinkForm({ getLinks }) {
 		const newLink = await submitLink(newBody)
 		if (newLink.error) {
 			// on server error
-			setError('Noe gikk galt, vennligst prøv igjen')
-			console.error(newLink.error)
+			if ((newLink.error.code = 11000)) {
+				setError('Dette aliaset er allerede i bruk')
+			} else {
+				setError('Noe gikk galt, vennligst prøv igjen')
+				console.log(newLink.error)
+			}
 		} else {
 			// on success
 			setUrlValue('')

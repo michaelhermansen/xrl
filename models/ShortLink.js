@@ -11,7 +11,7 @@ const shortLinkSchema = new mongoose.Schema({
 	},
 	short: {
 		type: String,
-		unique: true,
+		unique: [true, 'Alias er allerede i bruk'],
 		required: true,
 		maxLength: 20,
 		default: shortId.generate,
