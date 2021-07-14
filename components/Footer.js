@@ -16,11 +16,11 @@ export default function Footer() {
 
 			<style jsx>{`
 				footer {
-					padding: 3rem 0;
+					padding: 4rem 0;
 					border-top: 1px solid rgba(255, 255, 255, 0.05);
 				}
 				p {
-					opacity: 0.25;
+					opacity: 0.5;
 				}
 			`}</style>
 		</>
