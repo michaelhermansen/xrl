@@ -6,6 +6,7 @@ export default function TextField({
 	placeholder,
 	maxLength,
 	state,
+	type,
 }) {
 	const [value, setValue] = state
 
@@ -16,7 +17,7 @@ export default function TextField({
 				<div className='input-wrapper'>
 					<input
 						className='g--shadow'
-						type='text'
+						type={type || 'text'}
 						name={id}
 						id={id}
 						placeholder={placeholder}
