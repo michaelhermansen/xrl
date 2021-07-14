@@ -1,4 +1,5 @@
 import Container from './Container'
+import bp from '@breakpoints'
 
 export default function Footer() {
 	return (
@@ -16,11 +17,19 @@ export default function Footer() {
 
 			<style jsx>{`
 				footer {
-					padding: 4rem 0;
+					padding: 4rem 0 6rem 0;
+					text-align: center;
 					border-top: 1px solid rgba(255, 255, 255, 0.05);
 				}
 				p {
 					opacity: 0.5;
+				}
+
+				@media (min-width: ${bp.medium}px) {
+					footer {
+						padding: 3rem 0;
+						text-align: left;
+					}
 				}
 			`}</style>
 		</>

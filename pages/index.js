@@ -16,9 +16,12 @@ export default function Home() {
 
 	useEffect(() => {
 		getLinks()
-		window.addEventListener('focus', getLinks)
+		const updateLinks = () => {
+			if (document.visibilityState === 'visible') getLinks()
+		}
+		document.addEventListener('visibilitychange', updateLinks)
 
-		return () => window.removeEventListener('focus', getLinks)
+		return () => document.removeEventListener('visibilitychange', getLinks)
 	}, [])
 
 	return (
