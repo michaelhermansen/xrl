@@ -55,6 +55,8 @@ export default function UserLinks({ links, getLinks }) {
 				@media (min-width: ${bp.medium}px) {
 					ul {
 						display: grid;
+						overflow: hidden;
+						width: 100%;
 						grid-template-columns: repeat(2, 1fr);
 						gap: 1rem;
 						align-items: flex-start;

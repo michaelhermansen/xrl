@@ -28,7 +28,7 @@ export default function LinkItem({ link, getLinks }) {
 			console.log({ error })
 			setLoading(false)
 		} finally {
-			setTimeout(getLinks, 100)
+			getLinks()
 		}
 	}
 
@@ -71,8 +71,9 @@ export default function LinkItem({ link, getLinks }) {
 					color: var(--color-dark);
 					border-radius: 1rem;
 					transition: opacity 0.2s;
-					opacity: ${loading ? 0 : 1};
+					opacity: ${loading ? 0.25 : 1};
 					pointer-events: ${loading ? 'none' : 'unset'};
+					min-width: 0;
 				}
 
 				.link {

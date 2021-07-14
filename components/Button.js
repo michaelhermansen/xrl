@@ -31,13 +31,13 @@ export default function Button({ text, primary, dark, ...props }) {
 
 				@keyframes pulse {
 					0% {
-						opacity: 0.8;
+						opacity: 0.75;
 					}
 					50% {
-						opacity: 0.5;
+						opacity: 0.25;
 					}
 					100% {
-						opacity: 0.8;
+						opacity: 0.75;
 					}
 				}
 			`}</style>

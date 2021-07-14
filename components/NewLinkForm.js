@@ -70,7 +70,6 @@ export default function NewLinkForm({ getLinks }) {
 					id='url'
 					placeholder='https://www.example.com/…'
 					state={[urlValue, setUrlValue]}
-					type='url'
 				/>
 				<TextField
 					label='Alias (valgfritt)'
