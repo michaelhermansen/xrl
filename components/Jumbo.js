@@ -22,8 +22,9 @@ export default function Jumbo({ getLinks }) {
 			{/* styles */}
 			<style jsx>{`
 				.brand {
-					font-size: 1.5rem;
+					font-family: 'IBM Plex Mono', monospace;
 					font-weight: 500;
+					font-size: 1.25rem;
 					user-select: none;
 				}
 

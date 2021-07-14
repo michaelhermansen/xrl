@@ -22,7 +22,15 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>Lag korte og elegante linker – xrl.no</title>
+				<title>xrl.no – Lag korte og elegante linker</title>
+				<meta name='description' content='Lag og del forkortede URL-er.' />
+				<meta name='author' content='Michael Hermansen' />
+
+				{/* polyfill for 'scrollBehavior: smooth' */}
+				<script
+					defer
+					src='https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js'
+				></script>
 			</Head>
 			<Jumbo getLinks={getLinks} />
 			<div style={{ backgroundColor: 'var(--color-dark)' }}>

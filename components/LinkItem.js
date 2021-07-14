@@ -4,6 +4,7 @@ import { useLayoutEffect, useState } from 'react'
 
 export default function LinkItem({ link, getLinks }) {
 	const [loading, setLoading] = useState(true)
+	const [copied, setCopied] = useState(false)
 
 	useLayoutEffect(() => {
 		setTimeout(() => {
@@ -13,7 +14,12 @@ export default function LinkItem({ link, getLinks }) {
 
 	const shortUrl = `${location.host.replace('www.', '')}/${link.short}`
 	const copyLink = () => {
-		navigator.clipboard.writeText(`https://${shortUrl}`)
+		if (!copied) {
+			console.log('kopiert')
+			navigator.clipboard.writeText(`https://${shortUrl}`)
+			setCopied(true)
+			setTimeout(() => setCopied(false), 2000)
+		}
 	}
 
 	const deleteLink = async () => {
@@ -49,10 +55,13 @@ export default function LinkItem({ link, getLinks }) {
 				<div className='actions'>
 					<Button
 						onClick={copyLink}
-						text='Kopier'
+						text={!copied ? 'Kopier' : 'Kopiert'}
 						primary
-						style={{ width: '100%' }}
-						disabled={loading}
+						style={{
+							width: '100%',
+							opacity: copied ? 0.75 : 1,
+						}}
+						disabled={loading || copied}
 					/>
 					<Button
 						onClick={deleteLink}
@@ -77,13 +86,19 @@ export default function LinkItem({ link, getLinks }) {
 				}
 
 				.link {
+					font-family: 'IBM Plex Mono', monospace;
 					font-size: 1.25rem;
 					font-weight: 500;
+					text-decoration: none;
 					padding: 0.5rem 0;
 					margin: 2rem 0 ${link.clicks ? '.5rem' : '2rem'} 0;
 					display: block;
 					text-align: center;
 					overflow-wrap: break-word;
+				}
+
+				.link:hover {
+					text-decoration: underline;
 				}
 
 				.original-url {

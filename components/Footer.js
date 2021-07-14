@@ -1,23 +1,26 @@
+import Container from './Container'
+
 export default function Footer() {
 	return (
 		<>
 			<footer>
-				<p>
-					{`Laget av `}
-					<a target='_blank' href='https://michaelhermansen.no'>
-						Michael Hermansen
-					</a>
-				</p>
+				<Container>
+					<p>
+						{`Laget av `}
+						<a target='_blank' href='https://michaelhermansen.no'>
+							Michael Hermansen
+						</a>
+					</p>
+				</Container>
 			</footer>
 
 			<style jsx>{`
 				footer {
-					background: rgba(255, 255, 255, 0.01);
-					padding: 6rem 1rem;
-					text-align: center;
+					padding: 3rem 0;
+					border-top: 1px solid rgba(255, 255, 255, 0.05);
 				}
 				p {
-					opacity: 0.5;
+					opacity: 0.25;
 				}
 			`}</style>
 		</>

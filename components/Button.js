@@ -17,10 +17,10 @@ export default function Button({ text, primary, dark, ...props }) {
 					border: 1px solid transparent;
 					border-color: ${!primary ? 'rgba(0,0,0,0.1)' : 'transparent'};
 					cursor: pointer;
-					transition: transform 0.1s, opacity 0.2s;
+					transition: transform 0.1s, opacity 0.3s;
 				}
 
-				button:hover {
+				button:hover:not(:disabled) {
 					transform: scale(1.025);
 					opacity: 0.9;
 				}

@@ -34,7 +34,7 @@ export default function UserLinks({ links, getLinks }) {
 
 			<style jsx>{`
 				section {
-					padding: 3rem 0 4rem 0;
+					padding: 4rem 0 8rem 0;
 					background-color: var(--color-dark);
 				}
 
