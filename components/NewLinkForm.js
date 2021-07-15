@@ -98,7 +98,7 @@ export default function NewLinkForm({ getLinks }) {
 					style={{ margin: '1.5rem 0' }}
 					onClick={() => setError(null)}
 				/>
-				{error && <ErrorMessage message={error} />}
+				{error && <ErrorMessage message={error} dismiss={() => setError('')} />}
 			</form>
 
 			{/* styles */}
