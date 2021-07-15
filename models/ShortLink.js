@@ -7,7 +7,6 @@ const shortLinkSchema = new mongoose.Schema({
 	original: {
 		type: String,
 		required: [true, 'Ugyldig URL'],
-		lowercase: true,
 	},
 	short: {
 		type: String,
