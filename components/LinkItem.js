@@ -57,7 +57,7 @@ export default function LinkItem({ link, getLinks }) {
 				<div className='actions'>
 					<Button
 						onClick={copyLink}
-						text={!copied ? 'Kopier' : 'Kopiert'}
+						text={!copied ? 'Kopiér' : 'Kopiert'}
 						primary
 						style={{
 							width: '100%',
