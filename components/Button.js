@@ -1,16 +1,23 @@
 import Link from 'next/link'
 
-export default function Button({ text, primary, dark, href, ...props }) {
+export default function Button({
+	text,
+	primary,
+	dark,
+	href,
+	className,
+	...props
+}) {
 	return (
 		<>
 			{href ? (
 				<Link href={href}>
-					<a className='button' {...props}>
+					<a className={`button ${className}`} {...props}>
 						{text}
 					</a>
 				</Link>
 			) : (
-				<button className='button' {...props}>
+				<button className={`button ${className}`} {...props}>
 					{text}
 				</button>
 			)}
