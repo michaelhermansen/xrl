@@ -36,13 +36,12 @@ export default function Button({
 					border: 1px solid transparent;
 					border-color: ${!primary ? 'rgba(0,0,0,0.1)' : 'transparent'};
 					cursor: pointer;
-					transition: transform 0.1s, opacity 0.3s;
+					transition: transform 0.1s;
 					text-decoration: none;
 				}
 
 				.button:hover:not(:disabled) {
 					transform: scale(1.025);
-					opacity: 0.9;
 				}
 
 				.button:disabled.loading {
