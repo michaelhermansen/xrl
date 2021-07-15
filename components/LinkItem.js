@@ -37,6 +37,9 @@ export default function LinkItem({ link, getLinks }) {
 		}
 	}
 
+	const timeLeftToLive = Date.parse(link.expiresAt) - Date.now()
+	const daysLeft = timeLeftToLive / 1000 / 60 / 60 / 24
+
 	return (
 		<>
 			<li>
@@ -46,7 +49,7 @@ export default function LinkItem({ link, getLinks }) {
 				</a>
 				{link.clicks ? (
 					<div className='clicks'>
-						Har blitt klikket {link.clicks} gang{link.clicks > 1 ? 'er' : ''}
+						har blitt klikket {link.clicks} gang{link.clicks > 1 ? 'er' : ''}
 					</div>
 				) : (
 					''
@@ -69,6 +72,11 @@ export default function LinkItem({ link, getLinks }) {
 						disabled={loading}
 					/>
 				</div>
+				{daysLeft < 3 ? (
+					<p className='expire-warning'>
+						Denne linken utløper snart grunnet inaktivitet.
+					</p>
+				) : null}
 			</li>
 
 			<style jsx>{`
@@ -120,6 +128,13 @@ export default function LinkItem({ link, getLinks }) {
 					width: max-content;
 					background: rgba(0, 0, 0, 0.05);
 					border-radius: 0.5rem;
+				}
+
+				.expire-warning {
+					margin-top: 1.5rem;
+					padding: 1rem 0.5rem 0 0.5rem;
+					text-align: center;
+					border-top: 1px solid rgba(0, 0, 0, 0.1);
 				}
 			`}</style>
 		</>
