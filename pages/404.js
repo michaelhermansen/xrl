@@ -1,9 +1,13 @@
 import Button from '@components/Button'
 import Container from '@components/Container'
+import Head from 'next/head'
 
 export default function NotFound() {
 	return (
 		<>
+			<Head>
+				<title>404: siden finnes ikke</title>
+			</Head>
 			<Container>
 				<div className='wrapper'>
 					<h1>
