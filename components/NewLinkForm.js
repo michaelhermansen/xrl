@@ -16,8 +16,17 @@ export default function NewLinkForm({ getLinks }) {
 		setLoading(true)
 		event.preventDefault()
 
-		// frontend validation
-		if (!validateURL(urlValue).valid) {
+		// frontend validering
+		const validatedURL = validateURL(urlValue)
+		console.log(validatedURL)
+
+		if (validatedURL.isXrl) {
+			setError('Denne linken er allerede forkortet')
+			setLoading(false)
+			return
+		}
+
+		if (!validatedURL.valid && !validatedURL.isXrl) {
 			setError('Vennligst fyll inn en gyldig URL')
 			setLoading(false)
 			return
@@ -35,13 +44,14 @@ export default function NewLinkForm({ getLinks }) {
 		if (aliasValue.length) newBody.short = aliasValue
 
 		const newLink = await submitLink(newBody)
+
 		if (newLink.error) {
 			// on server error
-			if ((newLink.error.code = 11000)) {
+			if (newLink.error.code === 11000) {
 				setError('Dette aliaset er allerede i bruk')
 			} else {
 				setError('Noe gikk galt, vennligst prøv igjen')
-				console.log(newLink.error)
+				console.log({ serverError: newLink.error })
 			}
 		} else {
 			// on success

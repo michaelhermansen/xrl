@@ -32,7 +32,8 @@ const shortLinkSchema = new mongoose.Schema({
 })
 
 shortLinkSchema.path('original').validate(url => {
-	return validateURL(url).valid
+	if (!validateURL(url).valid) return false
+	if (validateURL(url).isXrl) return false
 }, 'Ugyldig URL')
 
 shortLinkSchema.path('short').validate(short => {
