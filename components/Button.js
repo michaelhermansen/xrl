@@ -1,11 +1,23 @@
-export default function Button({ text, primary, dark, ...props }) {
+import Link from 'next/link'
+
+export default function Button({ text, primary, dark, href, ...props }) {
 	return (
 		<>
-			<button {...props}>{text}</button>
+			{href ? (
+				<Link href={href}>
+					<a className='button' {...props}>
+						{text}
+					</a>
+				</Link>
+			) : (
+				<button className='button' {...props}>
+					{text}
+				</button>
+			)}
 
 			{/* styles */}
 			<style jsx>{`
-				button {
+				.button {
 					padding: 0.8rem 2rem;
 					font-weight: 500;
 					text-transform: uppercase;
@@ -18,14 +30,15 @@ export default function Button({ text, primary, dark, ...props }) {
 					border-color: ${!primary ? 'rgba(0,0,0,0.1)' : 'transparent'};
 					cursor: pointer;
 					transition: transform 0.1s, opacity 0.3s;
+					text-decoration: none;
 				}
 
-				button:hover:not(:disabled) {
+				.button:hover:not(:disabled) {
 					transform: scale(1.025);
 					opacity: 0.9;
 				}
 
-				button:disabled.loading {
+				.button:disabled.loading {
 					animation: pulse 1s infinite;
 				}
 
