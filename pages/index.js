@@ -30,6 +30,10 @@ export default function Home() {
 				<title>xrl.no – Lag korte og elegante linker</title>
 				<meta name='description' content='Lag og del forkortede URL-er.' />
 				<meta name='author' content='Michael Hermansen' />
+				<meta
+					name='google-site-verification'
+					content='google-site-verification=nf1LBHN88IMILC9uIM8jnfMiaYVwqz9-c6PYPXnizZo'
+				/>
 
 				{/* favicon-config */}
 				<link
