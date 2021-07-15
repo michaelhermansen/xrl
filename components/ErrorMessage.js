@@ -4,12 +4,13 @@ export default function ErrorMessage({ message, dismiss }) {
 			<div className='error'>
 				{message}{' '}
 				<button
+					aria-label='Skjul feilmelding'
 					className='dismiss-button'
 					onClick={() => {
 						if (dismiss) dismiss()
 					}}
 				>
-					╳
+					&#x2715;
 				</button>
 			</div>
 
@@ -31,9 +32,7 @@ export default function ErrorMessage({ message, dismiss }) {
 
 				.dismiss-button {
 					background: transparent;
-					font-size: 0.75rem;
-					padding: 0.5rem;
-					opacity: 0.75;
+					padding: 0.75rem;
 				}
 
 				@keyframes shake {
