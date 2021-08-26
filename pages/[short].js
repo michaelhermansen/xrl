@@ -1,28 +1,36 @@
 import mongoConnect from '@utils/mongoConnect'
 import ShortLink from '@models/ShortLink'
+import { useEffect } from 'react'
 
 export async function getServerSideProps(context) {
 	await mongoConnect()
 	await ShortLink.init()
+	let url
 
 	try {
 		const link = await ShortLink.findOne({ short: context.params.short })
 		if (link) {
-			context.res.writeHead(303, { Location: link.original })
-			context.res.end()
 			link.clicks++
 			link.expiresAt = Date.now() + 1000 * 60 * 60 * 24 * 30 // 30 dager frem i tid
 			link.save()
+			url = link.original
 		}
 	} catch (error) {
-		console.log(error)
+		console.error(error)
 	}
 
 	return {
-		notFound: true,
+		props: {
+			url,
+		},
+		notFound: url ? false : true,
 	}
 }
 
-export default function Empty() {
+export default function Redirect({ url }) {
+	useEffect(() => {
+		window.location.replace(url)
+	})
+
 	return null
 }
