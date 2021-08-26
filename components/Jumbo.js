@@ -29,7 +29,7 @@ export default function Jumbo({ getLinks }) {
 				}
 
 				.main-content {
-					padding: 6rem 0 4rem 0;
+					padding: 6rem 0 5rem 0;
 					display: grid;
 					grid-template-columns: 1fr;
 					max-width: 1200px;

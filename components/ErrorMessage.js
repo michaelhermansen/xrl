@@ -20,7 +20,7 @@ export default function ErrorMessage({ message, dismiss }) {
 					max-width: max-content;
 					background-color: var(--color-error);
 					font-weight: 500;
-					padding: 0.5rem 1rem 0.5rem 1.5rem;
+					padding: 0.25rem 1rem 0.25rem 1.5rem;
 					border-radius: 0.5rem;
 					box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25),
 						0 2px 8px rgba(0, 0, 0, 0.1);
@@ -28,6 +28,7 @@ export default function ErrorMessage({ message, dismiss }) {
 					display: flex;
 					align-items: center;
 					gap: 0.5rem;
+					position: absolute;
 				}
 
 				.dismiss-button {
