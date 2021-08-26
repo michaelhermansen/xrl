@@ -46,6 +46,7 @@ export default function Button({
 
 				.button:disabled.loading {
 					animation: pulse 1s infinite;
+					cursor: not-allowed;
 				}
 
 				@keyframes pulse {
