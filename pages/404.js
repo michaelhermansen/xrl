@@ -6,14 +6,12 @@ export default function NotFound() {
 	return (
 		<>
 			<Head>
-				<title>404: siden finnes ikke</title>
+				<title>404: Denne linken finnes ikke</title>
 			</Head>
 			<Container>
 				<div className='wrapper'>
-					<h1>
-						<div className='status'>404</div>
-						siden finnes ikke
-					</h1>
+					<div className='status'>404:</div>
+					<h1>Denne linken finnes ikke …</h1>
 					<Button text='Gå til forsiden' primary dark href='/' />
 				</div>
 			</Container>
@@ -21,20 +19,21 @@ export default function NotFound() {
 			<style jsx>{`
 				.wrapper {
 					color: var(--color-dark);
-					display: grid;
-					place-items: center;
-					margin: 25vh 0;
+					margin: 25vh auto;
+					max-width: 30rem;
 				}
 
 				h1 {
 					font-family: 'IBM Plex Mono', monospace;
-					text-align: center;
-					font-size: 1.5rem;
+					font-size: 2.5rem;
 					padding-bottom: 2rem;
+					margin-bottom: 2rem;
 				}
 
 				.status {
-					font-size: 6rem;
+					font-family: 'IBM Plex Mono', monospace;
+					font-size: 1.5rem;
+					margin-bottom: 1rem;
 				}
 			`}</style>
 		</>
