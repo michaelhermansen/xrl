@@ -16,9 +16,7 @@ export default function NewLinkForm({ getLinks }) {
 		setLoading(true)
 		event.preventDefault()
 
-		// frontend validering
 		const validatedURL = validateURL(urlValue)
-		console.log(validatedURL)
 
 		if (validatedURL.isXrl) {
 			setError('Denne linken er allerede forkortet')
