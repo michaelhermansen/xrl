@@ -103,6 +103,7 @@ export default function NewLinkForm({ getLinks }) {
 			<style jsx>{`
 				form {
 					padding: 2rem 0;
+					position: relative;
 				}
 			`}</style>
 		</>
