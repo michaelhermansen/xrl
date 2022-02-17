@@ -17,7 +17,6 @@ export default function NewLinkForm({ getLinks }) {
   const handleSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
-    const recaptchaToken = await recaptchaRef.current.executeAsync();
 
     const validatedURL = validateURL(urlValue);
 
@@ -41,6 +40,7 @@ export default function NewLinkForm({ getLinks }) {
       return;
     }
 
+    const recaptchaToken = await recaptchaRef.current.executeAsync();
     const newBody = { original: urlValue, recaptchaToken };
     if (aliasValue.length) newBody.short = aliasValue;
 
