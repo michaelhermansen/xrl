@@ -20,7 +20,7 @@ export default async (req, res) => {
 
   // Validate recaptchaToken
   const isHuman = await validateCaptcha(req.body.recaptchaToken);
-  if (!isHuman) return res.status(201);
+  if (!isHuman) return res.status(201).json({});
 
   await mongoConnect();
   await ShortLink.init();

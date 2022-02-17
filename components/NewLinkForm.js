@@ -64,6 +64,7 @@ export default function NewLinkForm({ getLinks }) {
         .scrollIntoView({ behavior: "smooth", inline: "start" });
     }
 
+    recaptchaRef.current.reset();
     setLoading(false);
   };
 
