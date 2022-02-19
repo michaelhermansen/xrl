@@ -71,7 +71,7 @@ export default function NewLinkForm({ getLinks }) {
   return (
     <>
       <ReCAPTCHA
-        style={{ display: "none" }}
+        badge="bottomleft"
         ref={recaptchaRef}
         size="invisible"
         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
