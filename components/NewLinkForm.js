@@ -71,6 +71,7 @@ export default function NewLinkForm({ getLinks }) {
   return (
     <>
       <ReCAPTCHA
+        style={{ zIndex: 1000 }}
         badge="bottomleft"
         ref={recaptchaRef}
         size="invisible"
